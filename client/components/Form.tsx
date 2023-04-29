@@ -44,60 +44,94 @@ export default function Form() {
 
   return (
     <div className="container">
-      <form onSubmit={submitHandler}>
-        <label htmlFor="length">Length</label>
-        <input
-          type="range"
-          id="length"
-          name="length"
-          min="8"
-          max="32"
-          onChange={lengthHandler}
-          value={passwordInfo.length}
-        />
-        <label htmlFor="lower">Lowercase letters: </label>
-        <input
-          type="checkbox"
-          id="lower"
-          name="lower"
-          onChange={changeHandler}
-          value={passwordInfo.lower}
-          checked={passwordInfo.lower}
-        />
+      <div className="form-div">
+        <div className="labels-div">
+          <div className="label-div">
+            <label htmlFor="length">Length: {passwordInfo.length}</label>
+          </div>
 
-        <label htmlFor="upper">Uppercase letters: </label>
-        <input
-          type="checkbox"
-          id="upper"
-          name="upper"
-          onChange={changeHandler}
-          value={passwordInfo.upper}
-          checked={passwordInfo.upper}
-        />
+          <div className="label-div">
+            <label htmlFor="lower">Lowercase letters: </label>
+          </div>
 
-        <label htmlFor="upper">Numbers: </label>
-        <input
-          type="checkbox"
-          id="number"
-          name="number"
-          onChange={changeHandler}
-          value={passwordInfo.number}
-          checked={passwordInfo.number}
-        />
+          <div className="label-div">
+            <label htmlFor="upper">Uppercase letters: </label>
+          </div>
 
-        <label htmlFor="symbol">Symbols: </label>
-        <input
-          type="checkbox"
-          id="symbol"
-          name="symbol"
-          onChange={changeHandler}
-          value={passwordInfo.symbol}
-          checked={passwordInfo.symbol}
-        />
+          <div className="label-div">
+            <label htmlFor="upper">Numbers: </label>
+          </div>
 
-        <button>password</button>
-      </form>
-      <div>{show && <p>{thePassword}</p>}</div>
+          <div className="label-div">
+            <label htmlFor="symbol">Symbols: </label>
+          </div>
+        </div>
+        <div className="inputs-div">
+          <form className="password-form">
+            <div className="input-div">
+              <input
+                type="range"
+                id="length"
+                name="length"
+                min="8"
+                max="32"
+                onChange={lengthHandler}
+                value={passwordInfo.length}
+              />
+            </div>
+            <div className="input-div">
+              <input
+                type="checkbox"
+                id="lower"
+                name="lower"
+                onChange={changeHandler}
+                value={passwordInfo.lower}
+                checked={passwordInfo.lower}
+              />
+            </div>
+            <div className="input-div">
+              <input
+                type="checkbox"
+                id="upper"
+                name="upper"
+                onChange={changeHandler}
+                value={passwordInfo.upper}
+                checked={passwordInfo.upper}
+              />
+            </div>
+            <div className="input-div">
+              <input
+                type="checkbox"
+                id="number"
+                name="number"
+                onChange={changeHandler}
+                value={passwordInfo.number}
+                checked={passwordInfo.number}
+              />
+            </div>
+            <div className="input-div">
+              <input
+                type="checkbox"
+                id="symbol"
+                name="symbol"
+                onChange={changeHandler}
+                value={passwordInfo.symbol}
+                checked={passwordInfo.symbol}
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+      <div className="button-div">
+        <button onClick={submitHandler}>password</button>
+      </div>
+      <div className="password-div">
+        {show ? (
+          <p>{thePassword}</p>
+        ) : (
+          <p>Your new password will generate here...</p>
+        )}
+      </div>
     </div>
   )
 }

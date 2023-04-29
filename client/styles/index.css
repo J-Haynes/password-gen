@@ -1,5 +1,6 @@
 html {
-  font-family: helvetica
+  font-family: helvetica;
+  color: white;
 }
 
 body {
@@ -17,6 +18,10 @@ p {
   max-width: 1000px;
   margin: auto;
   color: white;
+}
+
+.container {
+  padding-top: 15px;
 }
 
 .nav-div ul {
@@ -49,4 +54,45 @@ a {
   position: fixed;
   bottom: 0px;
   width: 100%;
+}
+
+.form-div {
+  display: flex;
+  width: 500px;
+  margin: 0 auto;
+}
+
+.password-form {
+  width: 240px;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+.labels-div {
+  width: 230px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-div {
+  width: 200px;
+}
+
+.input-div input {
+  width: 200px;
+}
+
+.label-div, .input-div {
+  width: 240px;
+  padding-bottom: 15px;
+}
+
+#id {
+  length: 100px;
+}
+
+.button-div {
+  text-align: center;
+  padding-top: 15px;
 }
