@@ -30,7 +30,7 @@ function password(passwordLength, lower, upper, number, special) {
         break
     }
   }
-  console.log(password)
+  return password
 }
 
 function randomLower() {
