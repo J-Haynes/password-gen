@@ -1,4 +1,4 @@
-function password(passwordLength, lower, upper) {
+function password(passwordLength, lower, upper, special) {
   let password = ''
   let options = []
   if (lower) {
@@ -7,18 +7,26 @@ function password(passwordLength, lower, upper) {
   if (upper) {
     options.push('upper')
   }
+  if (special) {
+    options.push('special')
+  }
   for (let i = 0; i < passwordLength; i++) {
     if (lower && !upper) {
       password += randomLower()
     } else if (!lower && upper) {
       password += randomUpper()
     } else if (lower && upper) {
-      let rand = options[Math.floor(Math.random() * options.length)]
+      const rand = options[Math.floor(Math.random() * options.length)]
       switch (rand) {
         case 'lower':
           password += randomLower()
+          break
         case 'upper':
           password += randomUpper()
+          break
+        case 'special':
+          password += randomSpecial()
+          break
       }
     }
   }
@@ -35,6 +43,9 @@ function randomUpper() {
   return upperAlphabet[Math.floor(Math.random() * upperAlphabet.length)]
 }
 
-password(12, true, true)
+function randomSpecial() {
+  const specialAlphabet = `!@#$%^&*()<>?/;':"[]{}|-_=+`
+  return specialAlphabet[Math.floor(Math.random() * specialAlphabet.length)]
+}
 
-let options = ['lower', 'upper']
+password(12, true, true, true)
