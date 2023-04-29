@@ -34,6 +34,10 @@ p {
   padding-right: 25px;
 }
 
+ul {
+  margin: 0;
+}
+
 li {
   list-style: none;
 }
@@ -41,6 +45,13 @@ li {
 a {
   color: white;
   text-decoration: none;
+}
+
+.footer {
+  color: white;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
 }
 
 /*# sourceMappingURL=styles.css.map*/
