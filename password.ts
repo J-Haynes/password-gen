@@ -1,6 +1,7 @@
 function password(passwordLength, lower, upper, number, special) {
   let password = ''
-  let options = []
+  const options = []
+
   if (lower) {
     options.push('lower')
   }
@@ -13,6 +14,27 @@ function password(passwordLength, lower, upper, number, special) {
   if (special) {
     options.push('special')
   }
+
+  function randomLower() {
+    const lowerAlphabet = 'abcdefghijklmnopqrstuvwxyz'
+    return lowerAlphabet[Math.floor(Math.random() * lowerAlphabet.length)]
+  }
+
+  function randomUpper() {
+    const upperAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    return upperAlphabet[Math.floor(Math.random() * upperAlphabet.length)]
+  }
+
+  function randomNumber() {
+    const numbers = '0123456789'
+    return numbers[Math.floor(Math.random() * numbers.length)]
+  }
+
+  function randomSpecial() {
+    const specialAlphabet = `!@#$%^&*()<>?/;':"[]{}|-_=+`
+    return specialAlphabet[Math.floor(Math.random() * specialAlphabet.length)]
+  }
+
   for (let i = 0; i < passwordLength; i++) {
     const rand = options[Math.floor(Math.random() * options.length)]
     switch (rand) {
@@ -31,24 +53,4 @@ function password(passwordLength, lower, upper, number, special) {
     }
   }
   return password
-}
-
-function randomLower() {
-  const lowerAlphabet = 'abcdefghijklmnopqrstuvwxyz'
-  return lowerAlphabet[Math.floor(Math.random() * lowerAlphabet.length)]
-}
-
-function randomUpper() {
-  const upperAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-  return upperAlphabet[Math.floor(Math.random() * upperAlphabet.length)]
-}
-
-function randomNumber() {
-  const numbers = '0123456789'
-  return numbers[Math.floor(Math.random() * numbers.length)]
-}
-
-function randomSpecial() {
-  const specialAlphabet = `!@#$%^&*()<>?/;':"[]{}|-_=+`
-  return specialAlphabet[Math.floor(Math.random() * specialAlphabet.length)]
 }
