@@ -1,4 +1,4 @@
-function password(passwordLength, lower, upper, special) {
+function password(passwordLength, lower, upper, number, special) {
   let password = ''
   let options = []
   if (lower) {
@@ -6,6 +6,9 @@ function password(passwordLength, lower, upper, special) {
   }
   if (upper) {
     options.push('upper')
+  }
+  if (number) {
+    options.push('number')
   }
   if (special) {
     options.push('special')
@@ -23,6 +26,9 @@ function password(passwordLength, lower, upper, special) {
           break
         case 'upper':
           password += randomUpper()
+          break
+        case 'number':
+          password += randomNumber()
           break
         case 'special':
           password += randomSpecial()
@@ -43,9 +49,14 @@ function randomUpper() {
   return upperAlphabet[Math.floor(Math.random() * upperAlphabet.length)]
 }
 
+function randomNumber() {
+  const numbers = '0123456789'
+  return numbers[Math.floor(Math.random() * numbers.length)]
+}
+
 function randomSpecial() {
   const specialAlphabet = `!@#$%^&*()<>?/;':"[]{}|-_=+`
   return specialAlphabet[Math.floor(Math.random() * specialAlphabet.length)]
 }
 
-password(12, true, true, true)
+password(12, true, true, true, true)
