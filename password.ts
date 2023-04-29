@@ -1,4 +1,4 @@
-function password(passwordLength, lower, upper, number, special) {
+export function password(passwordLength, lower, upper, number, special) {
   let password = ''
   const options = []
 
