@@ -1,0 +1,41 @@
+html {
+  font-family: helvetica
+}
+
+body {
+  margin: 0;
+  background-color: rgb(77, 67, 67)
+}
+
+p {
+  text-align: center;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: auto;
+  color: white;
+}
+
+.nav-div ul {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  align-items: center;
+  padding: 0;
+}
+
+.nav-div ul li {
+  padding-right: 25px;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
