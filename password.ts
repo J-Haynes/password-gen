@@ -1,8 +1,6 @@
 function password(passwordLength, lower, upper, number, special) {
   let password = ''
   let options = []
-  const options1 = [...arguments]
-  console.log(options1)
   if (lower) {
     options.push('lower')
   }
@@ -54,8 +52,3 @@ function randomSpecial() {
   const specialAlphabet = `!@#$%^&*()<>?/;':"[]{}|-_=+`
   return specialAlphabet[Math.floor(Math.random() * specialAlphabet.length)]
 }
-
-password(12, true, false, false, false)
-password(12, false, true, false, false)
-password(12, false, false, true, false)
-password(12, true, true, true, true)
