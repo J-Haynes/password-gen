@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { passwordModel } from '../../models/password'
 
 import { password } from '../../password'
+import { colourText } from './Helpers'
 
 export default function Form() {
   const [passwordInfo, setPasswordInfo] = useState({
@@ -47,7 +48,9 @@ export default function Form() {
       <div className="form-div">
         <div className="labels-div">
           <div className="label-div">
-            <label htmlFor="length">Length: {passwordInfo.length}</label>
+            <label htmlFor="length">
+              Length: {colourText(passwordInfo.length)}
+            </label>
           </div>
 
           <div className="label-div">
