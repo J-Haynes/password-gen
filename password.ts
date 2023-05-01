@@ -1,6 +1,6 @@
 export function password(passwordLength, lower, upper, number, special) {
   let password = ''
-  const options = []
+  const options = [] as string[]
 
   if (lower) {
     options.push('lower')

@@ -94,5 +94,3 @@ export function checkStrength(passwordLength, lower, upper, number, symbol) {
     return `${Math.trunc(seconds / 31540000000000000000000)} quadrillion years`
   }
 }
-
-checkStrength(11, true, true, true, false)

@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { password } from '../../password'
+import React from 'react'
 
 import { checkStrength } from '../../pw-strength'
 

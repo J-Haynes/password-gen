@@ -5,15 +5,13 @@ import Footer from './Footer'
 import Reasons from './Reasons'
 import Info from './Info'
 
-import { passwordModel } from '../../models/password'
-
 export default function App() {
   const [passwordInfo, setPasswordInfo] = useState({
-    length: '16',
+    length: '12',
     lower: true,
     upper: true,
     number: true,
-    symbol: true,
+    symbol: false,
   })
 
   const [onSetShow, setOnSetShow] = useState(false)

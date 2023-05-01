@@ -3,15 +3,14 @@ import { useState } from 'react'
 
 import { password } from '../../password'
 import { colourText } from './Helpers'
-import { passwordModel } from '../../models/password'
 
 export default function Form({ onPasswordSet, onSetShow }) {
   const [passwordInfo, setPasswordInfo] = useState({
-    length: '16',
+    length: '12',
     lower: true,
     upper: true,
     number: true,
-    symbol: true,
+    symbol: false,
   })
 
   const [show, setShow] = useState(false)
@@ -63,7 +62,7 @@ export default function Form({ onPasswordSet, onSetShow }) {
           </div>
 
           <div className="label-div">
-            <label htmlFor="upper">Numbers: </label>
+            <label htmlFor="number">Numbers: </label>
           </div>
 
           <div className="label-div">
@@ -77,8 +76,8 @@ export default function Form({ onPasswordSet, onSetShow }) {
                 type="range"
                 id="length"
                 name="length"
-                min="8"
-                max="32"
+                min="1"
+                max="24"
                 onChange={lengthHandler}
                 value={passwordInfo.length}
               />
