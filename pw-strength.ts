@@ -34,7 +34,7 @@ export function checkStrength(passwordLength, lower, upper, number, symbol) {
   } else if (seconds > 1 && seconds < 2) {
     return `One second`
   } else if (seconds >= 2 && seconds < 60) {
-    return `${seconds} seconds`
+    return `${Math.trunc(seconds)} seconds`
   } else if (seconds > 60 && seconds < 120) {
     return `One minute`
   } else if (seconds >= 120 && seconds < 3600) {
@@ -57,7 +57,7 @@ export function checkStrength(passwordLength, lower, upper, number, symbol) {
     return `${Math.trunc(seconds / 5256000)} months`
   } else if (seconds >= 31540000 && seconds < 63080000) {
     return `One year`
-  } else if (seconds >= 126160000 && seconds < 3154000000) {
+  } else if (seconds >= 63080000 && seconds < 3154000000) {
     return `${Math.trunc(seconds / 31540000)} years`
   } else if (seconds >= 3154000000 && seconds < 6308000000) {
     return `One hundred years`
