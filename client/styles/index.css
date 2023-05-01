@@ -60,6 +60,7 @@ a {
   display: flex;
   width: 500px;
   margin: 0 auto;
+  justify-content: space-between;
 }
 
 .password-form {
@@ -107,4 +108,42 @@ a {
 
 .green-text {
   color: green
+}
+
+.container {
+  padding-top: 25px;
+  width: 700px;
+  background-color: rgb(36, 33, 33);
+  height: 280px;
+  border-radius: 10px;
+  margin: 15px auto
+}
+
+.reasons-div {
+  width: 700px;
+  display: flex;
+  height: 280px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(77, 67, 67);
+  margin: 15px auto;
+  border-radius: 10px;
+}
+
+.reason-div {
+  width: 30%;
+  height: 90%;
+  background-color: rgb(36, 33, 33);
+  border-radius: 10px;
+}
+
+.info-div {
+  width: 700px;
+  display: flex;
+  height: 280px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(36, 33, 33);
+  margin: 15px auto;
+  border-radius: 10px;
 }

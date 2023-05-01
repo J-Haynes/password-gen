@@ -1,4 +1,5 @@
 import React from 'react'
+// import hsimp from 'hsimp'
 
 export function colourText(text: string) {
   if (Number(text) >= 8 && Number(text) <= 12) {
@@ -9,3 +10,7 @@ export function colourText(text: string) {
     return <span className="green-text">{text}</span>
   }
 }
+
+// export function checkPassword(password) {
+//   return hsimp(password)
+// }
