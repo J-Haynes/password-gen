@@ -149,6 +149,43 @@ a {
   background-color: rgb(36, 33, 33);
   margin: 15px auto;
   border-radius: 10px;
+  border: 1px solid rgb(36, 33, 33);
+}
+
+.info-div-red {
+  width: 700px;
+  display: flex;
+  height: 280px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(36, 33, 33);
+  margin: 15px auto;
+  border-radius: 10px;
+  border: 1px solid red;
+}
+
+.info-div-orange {
+  width: 700px;
+  display: flex;
+  height: 280px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(36, 33, 33);
+  margin: 15px auto;
+  border-radius: 10px;
+  border: 1px solid orange;
+}
+
+.info-div-green {
+  width: 700px;
+  display: flex;
+  height: 280px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(36, 33, 33);
+  margin: 15px auto;
+  border-radius: 10px;
+  border: 1px solid green;
 }
 
 /*# sourceMappingURL=styles.css.map*/
