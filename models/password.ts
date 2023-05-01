@@ -1,6 +1,6 @@
 export interface passwordModel {
-  length: number
-  lower: string
-  upper: string
-  symbol: string
+  length: string
+  lower: boolean
+  upper: boolean
+  symbol: boolean
 }

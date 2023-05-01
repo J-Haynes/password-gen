@@ -1,4 +1,4 @@
-function checkStrength(passwordLength, lower, upper, number, special) {
+export function checkStrength(passwordLength, lower, upper, number, symbol) {
   let chars = 0
   if (lower) {
     chars += 26
@@ -9,7 +9,7 @@ function checkStrength(passwordLength, lower, upper, number, special) {
   if (number) {
     chars += 10
   }
-  if (special) {
+  if (symbol) {
     chars += 27
   }
   const possible = chars ** passwordLength

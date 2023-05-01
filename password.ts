@@ -1,4 +1,4 @@
-function password(passwordLength, lower, upper, number, special) {
+export function password(passwordLength, lower, upper, number, special) {
   let password = ''
   const options = []
 
@@ -54,5 +54,3 @@ function password(passwordLength, lower, upper, number, special) {
   }
   return password
 }
-
-console.log(password(16, true, true, true, true))

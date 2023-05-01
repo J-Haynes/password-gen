@@ -1,11 +1,11 @@
 import React, { ChangeEvent } from 'react'
 import { useState } from 'react'
-import { passwordModel } from '../../models/password'
 
 import { password } from '../../password'
 import { colourText } from './Helpers'
+import { passwordModel } from '../../models/password'
 
-export default function Form() {
+export default function Form({ onPasswordSet, onSetShow }) {
   const [passwordInfo, setPasswordInfo] = useState({
     length: '16',
     lower: true,
@@ -30,15 +30,16 @@ export default function Form() {
   const submitHandler = (e: SubmitEvent) => {
     e.preventDefault()
     setShow(true)
-    setThePassword(
-      password(
-        passwordInfo.length,
-        passwordInfo.lower,
-        passwordInfo.upper,
-        passwordInfo.number,
-        passwordInfo.symbol
-      )
+    const generatedPassword = password(
+      passwordInfo.length,
+      passwordInfo.lower,
+      passwordInfo.upper,
+      passwordInfo.number,
+      passwordInfo.symbol
     )
+    setThePassword(generatedPassword)
+    onPasswordSet(passwordInfo)
+    onSetShow(true)
   }
 
   const [thePassword, setThePassword] = useState('hello')
