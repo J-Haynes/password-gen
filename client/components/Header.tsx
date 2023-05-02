@@ -9,7 +9,7 @@ export default function Header() {
       <div className="nav-div">
         <ul>
           <a
-            href="https://github.com/J-Haynes/weather-app"
+            href="https://github.com/J-Haynes/password-gen"
             target="_blank"
             rel="noreferrer"
           >
