@@ -6,7 +6,6 @@
   "main": "server/index.ts",
   "scripts": {
     "build": "run-p build:client build:server",
-    // "build:client": "npm run webpack -- --mode production",
     "build:client": "webpack --mode production --config client/webpack.config.js --output-path client/build",
     "build:server": "npm run knex -- migrate:latest",
     "start": "ts-node server/index.ts",
@@ -16,7 +15,6 @@
     "dev:client": "npm run webpack -- --watch",
     "dev:server": "nodemon server/index.ts",
     "webpack": "webpack --config ./client/webpack.config.js",
-    "knex": "knex --knexfile ./server/db/knexfile.js",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ."
   },
   "keywords": [
