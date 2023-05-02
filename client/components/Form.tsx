@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from 'react'
 import { useState } from 'react'
 
-import { password } from '../../password'
+import { password } from '../../utils/password'
 import { colourText } from './Helpers'
 
 export default function Form({ onPasswordSet, onSetShow }) {

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { checkStrength } from '../../pw-strength'
+import { checkStrength } from '../../utils/pw-strength'
 import { changeColour } from '../../change-colour'
 
 export default function Info({ userPassword, setShow }) {
@@ -36,7 +36,7 @@ export default function Info({ userPassword, setShow }) {
           </p>
           <p>
             A long, complex password is one way to protect yourself when when
-            your data leaks
+            your data leaks.
           </p>
         </div>
       )}
