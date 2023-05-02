@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { checkStrength } from '../../utils/pw-strength'
-import { changeColour } from '../../change-colour'
+import { changeColour } from '../../utils/change-colour'
 
 export default function Info({ userPassword, setShow }) {
   const colour = changeColour(
