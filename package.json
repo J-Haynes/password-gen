@@ -6,7 +6,8 @@
   "main": "server/index.ts",
   "scripts": {
     "build": "run-p build:client build:server",
-    "build:client": "npm run webpack -- --mode production",
+    // "build:client": "npm run webpack -- --mode production",
+    "build:client": "webpack --mode production --config client/webpack.config.js --output-path client/build",
     "build:server": "npm run knex -- migrate:latest",
     "start": "ts-node server/index.ts",
     "test": "jest",
