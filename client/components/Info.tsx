@@ -18,6 +18,7 @@ export default function Info({ userPassword, setShow }) {
       {setShow ? (
         <div className={divName}>
           <p style={{ color: colour }}>
+            Your password will be cracked{' '}
             {checkStrength(
               userPassword.length,
               userPassword.lower,
@@ -28,7 +29,16 @@ export default function Info({ userPassword, setShow }) {
           </p>
         </div>
       ) : (
-        <div className="info-div"></div>
+        <div className="info-div">
+          <p>
+            Modern super computers can make 40 billion password guesses per
+            second
+          </p>
+          <p>
+            A long, complex password is one way to protect yourself when when
+            your data leaks
+          </p>
+        </div>
       )}
     </>
   )
