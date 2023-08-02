@@ -1,4 +1,10 @@
-export function checkStrength(passwordLength, lower, upper, number, symbol) {
+export function checkStrength(
+  passwordLength: string,
+  lower: boolean,
+  upper: boolean,
+  number: boolean,
+  symbol: boolean
+): string {
   let chars = 0
   if (lower) {
     chars += 26
@@ -92,5 +98,7 @@ export function checkStrength(passwordLength, lower, upper, number, symbol) {
     return `in One quadrillion years`
   } else if (seconds > 63080000000000000000000) {
     return `${Math.trunc(seconds / 31540000000000000000000)} quadrillion years`
+  } else {
+    return ''
   }
 }
