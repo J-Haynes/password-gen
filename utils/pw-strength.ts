@@ -54,7 +54,7 @@ export function checkStrength(passwordLength, lower, upper, number, symbol) {
   } else if (seconds >= 2628000 && seconds < 5256000) {
     return `in One month`
   } else if (seconds >= 5256000 && seconds < 31540000) {
-    return `in ${Math.trunc(seconds / 5256000)} months`
+    return `in ${Math.trunc(seconds / 2628000)} months`
   } else if (seconds >= 31540000 && seconds < 63080000) {
     return `in One year`
   } else if (seconds >= 63080000 && seconds < 3154000000) {
