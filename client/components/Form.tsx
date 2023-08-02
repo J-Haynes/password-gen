@@ -1,6 +1,8 @@
 import React, { ChangeEvent, useState, useEffect } from 'react'
 
 import { password } from '../../utils/password'
+import { checkStrength } from '../../utils/pw-strength'
+import { changeColour } from '../../utils/change-colour'
 import { colourText } from './Helpers'
 
 export default function Form({ onPasswordSet, onSetShow }) {
@@ -12,7 +14,8 @@ export default function Form({ onPasswordSet, onSetShow }) {
     symbol: false,
   })
 
-  // const [show, setShow] = useState(false)
+  const [passwordStrength, setPasswordStrength] = useState('')
+  const [colour, setColour] = useState('green')
 
   const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     console.log(e.target)
@@ -21,36 +24,12 @@ export default function Form({ onPasswordSet, onSetShow }) {
       ...prevInfo,
       [id]: id === 'length' ? parseInt(value) : checked,
     }))
-
-    // const generatedPassword = password(
-    //   passwordInfo.length,
-    //   passwordInfo.lower,
-    //   passwordInfo.upper,
-    //   passwordInfo.number,
-    //   passwordInfo.symbol
-    // )
-    // setThePassword(generatedPassword)
   }
 
   const lengthHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setPasswordInfo({ ...passwordInfo, [e.target.id]: e.target.value })
     console.log(passwordInfo)
   }
-
-  // const submitHandler = (e: SubmitEvent) => {
-  //   e.preventDefault()
-  //   // setShow(true)
-  //   const generatedPassword = password(
-  //     passwordInfo.length,
-  //     passwordInfo.lower,
-  //     passwordInfo.upper,
-  //     passwordInfo.number,
-  //     passwordInfo.symbol
-  //   )
-  //   setThePassword(generatedPassword)
-  //   onPasswordSet(passwordInfo)
-  //   onSetShow(true)
-  // }
 
   useEffect(() => {
     const generatedPassword = password(
@@ -63,102 +42,119 @@ export default function Form({ onPasswordSet, onSetShow }) {
     console.log(passwordInfo)
     setThePassword(generatedPassword)
     onPasswordSet(passwordInfo)
+    setPasswordStrength(
+      checkStrength(
+        passwordInfo.length,
+        passwordInfo.lower,
+        passwordInfo.upper,
+        passwordInfo.number,
+        passwordInfo.symbol
+      )
+    )
+    setColour(
+      changeColour(
+        passwordInfo.length,
+        passwordInfo.lower,
+        passwordInfo.upper,
+        passwordInfo.number,
+        passwordInfo.symbol
+      )
+    )
   }, [passwordInfo])
 
   const [thePassword, setThePassword] = useState('')
 
   return (
-    <div className="container">
-      <div className="form-div">
-        <div className="labels-div">
-          <div className="label-div">
-            <label htmlFor="length">
-              Length: {colourText(passwordInfo.length)}
-            </label>
-          </div>
-
-          <div className="label-div">
-            <label htmlFor="lower">Lowercase letters: </label>
-          </div>
-
-          <div className="label-div">
-            <label htmlFor="upper">Uppercase letters: </label>
-          </div>
-
-          <div className="label-div">
-            <label htmlFor="number">Numbers: </label>
-          </div>
-
-          <div className="label-div">
-            <label htmlFor="symbol">Symbols: </label>
-          </div>
-        </div>
-        <div className="inputs-div">
-          <form className="password-form">
-            <div className="input-div">
-              <input
-                type="range"
-                id="length"
-                name="length"
-                min="1"
-                max="24"
-                onChange={lengthHandler}
-                value={passwordInfo.length}
-              />
-            </div>
-            <div className="input-div">
-              <input
-                type="checkbox"
-                id="lower"
-                name="lower"
-                onChange={changeHandler}
-                value={passwordInfo.lower}
-                checked={passwordInfo.lower}
-              />
-            </div>
-            <div className="input-div">
-              <input
-                type="checkbox"
-                id="upper"
-                name="upper"
-                onChange={changeHandler}
-                value={passwordInfo.upper}
-                checked={passwordInfo.upper}
-              />
-            </div>
-            <div className="input-div">
-              <input
-                type="checkbox"
-                id="number"
-                name="number"
-                onChange={changeHandler}
-                value={passwordInfo.number}
-                checked={passwordInfo.number}
-              />
-            </div>
-            <div className="input-div">
-              <input
-                type="checkbox"
-                id="symbol"
-                name="symbol"
-                onChange={changeHandler}
-                value={passwordInfo.symbol}
-                checked={passwordInfo.symbol}
-              />
-            </div>
-          </form>
-        </div>
-      </div>
-      {/* <div className="button-div">
-        <button onClick={submitHandler}>password</button>
-      </div> */}
+    <>
       <div className="password-div">
-        {/* {show ? ( */}
-        <p>{thePassword}</p>
-        {/* ) : (
-          <p>Your new password will generate here...</p>
-        )} */}
+        <p>Your Password:</p>
+        <h1>{thePassword}</h1>
+        <p style={{ color: colour }}>
+          Your password will be cracked {passwordStrength}
+        </p>
       </div>
-    </div>
+      <div className="container">
+        <div className="form-div">
+          <div className="labels-div">
+            <div className="label-div">
+              <label htmlFor="length">
+                Length: {colourText(passwordInfo.length)}
+              </label>
+            </div>
+
+            <div className="label-div">
+              <label htmlFor="lower">Lowercase letters: </label>
+            </div>
+
+            <div className="label-div">
+              <label htmlFor="upper">Uppercase letters: </label>
+            </div>
+
+            <div className="label-div">
+              <label htmlFor="number">Numbers: </label>
+            </div>
+
+            <div className="label-div">
+              <label htmlFor="symbol">Symbols: </label>
+            </div>
+          </div>
+          <div className="inputs-div">
+            <form className="password-form">
+              <div className="input-div">
+                <input
+                  type="range"
+                  id="length"
+                  name="length"
+                  min="1"
+                  max="24"
+                  onChange={lengthHandler}
+                  value={passwordInfo.length}
+                />
+              </div>
+              <div className="input-div">
+                <input
+                  type="checkbox"
+                  id="lower"
+                  name="lower"
+                  onChange={changeHandler}
+                  value={passwordInfo.lower}
+                  checked={passwordInfo.lower}
+                />
+              </div>
+              <div className="input-div">
+                <input
+                  type="checkbox"
+                  id="upper"
+                  name="upper"
+                  onChange={changeHandler}
+                  value={passwordInfo.upper}
+                  checked={passwordInfo.upper}
+                />
+              </div>
+              <div className="input-div">
+                <input
+                  type="checkbox"
+                  id="number"
+                  name="number"
+                  onChange={changeHandler}
+                  value={passwordInfo.number}
+                  checked={passwordInfo.number}
+                />
+              </div>
+              <div className="input-div">
+                <input
+                  type="checkbox"
+                  id="symbol"
+                  name="symbol"
+                  onChange={changeHandler}
+                  value={passwordInfo.symbol}
+                  checked={passwordInfo.symbol}
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </>
   )
 }
