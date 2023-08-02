@@ -5,7 +5,7 @@ html {
 
 body {
   margin: 0;
-  background-color: rgb(77, 67, 67)
+  background-color: #0e141b
 }
 
 p {
@@ -116,7 +116,8 @@ a {
   background-color: rgb(36, 33, 33);
   height: 280px;
   border-radius: 10px;
-  margin: 15px auto
+  margin: 15px auto;
+  border: 2px solid white
 }
 
 .reasons-div {

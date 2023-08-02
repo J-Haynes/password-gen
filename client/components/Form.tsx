@@ -1,5 +1,4 @@
-import React, { ChangeEvent } from 'react'
-import { useState } from 'react'
+import React, { ChangeEvent, useState, useEffect } from 'react'
 
 import { password } from '../../utils/password'
 import { colourText } from './Helpers'
@@ -13,12 +12,24 @@ export default function Form({ onPasswordSet, onSetShow }) {
     symbol: false,
   })
 
-  const [show, setShow] = useState(false)
+  // const [show, setShow] = useState(false)
 
   const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    const { id, checked } = e.target
-    setPasswordInfo({ ...passwordInfo, [id]: checked })
-    console.log(passwordInfo)
+    console.log(e.target)
+    const { id, value, checked } = e.target
+    setPasswordInfo((prevInfo) => ({
+      ...prevInfo,
+      [id]: id === 'length' ? parseInt(value) : checked,
+    }))
+
+    // const generatedPassword = password(
+    //   passwordInfo.length,
+    //   passwordInfo.lower,
+    //   passwordInfo.upper,
+    //   passwordInfo.number,
+    //   passwordInfo.symbol
+    // )
+    // setThePassword(generatedPassword)
   }
 
   const lengthHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -26,9 +37,22 @@ export default function Form({ onPasswordSet, onSetShow }) {
     console.log(passwordInfo)
   }
 
-  const submitHandler = (e: SubmitEvent) => {
-    e.preventDefault()
-    setShow(true)
+  // const submitHandler = (e: SubmitEvent) => {
+  //   e.preventDefault()
+  //   // setShow(true)
+  //   const generatedPassword = password(
+  //     passwordInfo.length,
+  //     passwordInfo.lower,
+  //     passwordInfo.upper,
+  //     passwordInfo.number,
+  //     passwordInfo.symbol
+  //   )
+  //   setThePassword(generatedPassword)
+  //   onPasswordSet(passwordInfo)
+  //   onSetShow(true)
+  // }
+
+  useEffect(() => {
     const generatedPassword = password(
       passwordInfo.length,
       passwordInfo.lower,
@@ -36,12 +60,12 @@ export default function Form({ onPasswordSet, onSetShow }) {
       passwordInfo.number,
       passwordInfo.symbol
     )
+    console.log(passwordInfo)
     setThePassword(generatedPassword)
     onPasswordSet(passwordInfo)
-    onSetShow(true)
-  }
+  }, [passwordInfo])
 
-  const [thePassword, setThePassword] = useState('hello')
+  const [thePassword, setThePassword] = useState('')
 
   return (
     <div className="container">
@@ -125,15 +149,15 @@ export default function Form({ onPasswordSet, onSetShow }) {
           </form>
         </div>
       </div>
-      <div className="button-div">
+      {/* <div className="button-div">
         <button onClick={submitHandler}>password</button>
-      </div>
+      </div> */}
       <div className="password-div">
-        {show ? (
-          <p>{thePassword}</p>
-        ) : (
+        {/* {show ? ( */}
+        <p>{thePassword}</p>
+        {/* ) : (
           <p>Your new password will generate here...</p>
-        )}
+        )} */}
       </div>
     </div>
   )
