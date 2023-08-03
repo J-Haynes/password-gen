@@ -16,6 +16,7 @@ p {
   display: flex;
   justify-content: space-between;
   max-width: 1000px;
+  width: 80vw;
   margin: auto;
   color: white;
 }
@@ -26,10 +27,6 @@ p {
   height: 100%;
   align-items: center;
   padding: 0;
-}
-
-.nav-div ul li {
-  padding-right: 25px;
 }
 
 ul {
@@ -45,6 +42,11 @@ a {
   text-decoration: none;
 }
 
+.password-div h1 {
+  height: 2em;
+  word-wrap: break-word;
+}
+
 .footer {
   color: white;
   position: fixed;
@@ -56,12 +58,16 @@ a {
   display: flex;
   width: 500px;
   margin: 0 auto;
-  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  justify-content: space-evenly;
+  padding: 0px 10px;
 }
 
 .password-div {
   text-align: center;
-  width: 700px;
+  max-width: 700px;
+  width: 80vw;
   background-color: rgb(36, 33, 33);
   height: auto;
   border-radius: 10px;
@@ -73,37 +79,30 @@ a {
   }
 
 .password-form {
-  width: 240px;
   display: flex;
   margin: 0 auto;
   flex-direction: column;
 }
 
 .labels-div {
-  width: 230px;
   display: flex;
   flex-direction: column;
-}
-
-.input-div {
-  width: 200px;
+  align-items: center;    
+  height: 200px;
+  justify-content: space-around
 }
 
 .input-div input {
+  height: 1.5em;
   width: 200px;
 }
 
 .label-div, .input-div {
-  width: 240px;
   padding-bottom: 15px;
 }
 
 .password-div h1 {
   font-size: 30px;
-}
-
-#id {
-  length: 100px;
 }
 
 .button-div {
@@ -124,13 +123,14 @@ a {
 }
 
 .container {
-  width: 700px;
+  max-width: 700px;
+  width: 80vw;
   background-color: rgb(36, 33, 33);
-  height: 280px;
+  height: auto;
   border-radius: 10px;
   margin: 15px auto;
   border: 2px solid white;
-  padding-top: 15px;
+  padding: 25px 0px;
 }
 
 .reasons-div {
@@ -144,6 +144,11 @@ a {
   border-radius: 10px;
 }
 
+.password-div p {
+  height: 3em;
+  padding: 0px 10px;
+}
+
 .reason-div {
   width: 30%;
   height: 90%;
@@ -152,7 +157,8 @@ a {
 }
 
 .info-div {
-  width: 700px;
+  max-width: 700px;
+  width: 80vw;
   display: flex;
   height: 280px;
   justify-content: center;
@@ -162,6 +168,10 @@ a {
   border-radius: 10px;
   border: 1px solid rgb(36, 33, 33);
   flex-direction: column;
+}
+
+.info-div p {
+  padding: 0px 25px;
 }
 
 .info-div-red {
@@ -200,3 +210,26 @@ a {
   border-radius: 10px;
   border: 1px solid green;
 }
+
+@media only screen and (max-width: 400px) {
+  .labels-div {
+    align-items: flex-start;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .label-div {
+    width: auto;
+  }
+  .form-div {
+    font-size: 18px;
+    width: auto;
+  }
+  .input-div input {
+    width: 100%;
+  }
+  .password-div h1 {
+    font-size: 25px;
+  }
+}
+
