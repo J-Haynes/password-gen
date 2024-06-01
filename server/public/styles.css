@@ -151,6 +151,7 @@ a {
 .password-div p {
   height: 3em;
   padding: 0px 10px;
+  user-select: none;
 }
 
 .reason-div {
@@ -214,8 +215,37 @@ a {
   border: 1px solid green;
 }
 
-svg {
-  padding: 20px 0px 40px 0px;
+.svg-div {
+  height: 75px;
+  width: 75px;
+  margin: 10px 0px 20px 0px;
+  padding: 10px 10px 20px 10px;
+}
+
+.svg-div svg {
+  fill: white;
+  transition: fill 0.5s ease-in-out;
+}
+
+.svg-div:hover svg {
+  fill: lightgrey; /* Change fill color on hover */
+}
+
+.svg-div:active svg {
+  fill: red; /* Change fill color when clicked */
+  animation: revertColor 0.5s ease forwards; /* Revert fill color animation */
+}
+
+@keyframes revertColor {
+  0% {
+    fill: red;
+  }
+  100% {
+    fill: white;
+  }
+}
+.svg-div:active svg {
+  animation: revertColor 0.5s ease forwards;
 }
 
 @media only screen and (max-width: 400px) {

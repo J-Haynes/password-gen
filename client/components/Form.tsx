@@ -15,6 +15,11 @@ export default function Form({ onPasswordSet, onSetShow }) {
     symbol: false,
   })
 
+  const copyHandler = () => {
+    console.log('copyHandler')
+    navigator.clipboard.writeText(thePassword)
+  }
+
   const [passwordStrength, setPasswordStrength] = useState('')
   const [colour, setColour] = useState('green')
 
@@ -70,7 +75,9 @@ export default function Form({ onPasswordSet, onSetShow }) {
       <div className="password-div">
         <p>Your Password:</p>
         <h1>{thePassword}</h1>
-        <CopySvg width="50px" />
+        <div className="svg-div" onClick={copyHandler}>
+          <CopySvg width="50px" />
+        </div>
         <p style={{ color: colour }}>
           Your password will be cracked {passwordStrength}
         </p>
