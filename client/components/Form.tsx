@@ -4,6 +4,7 @@ import { password } from '../../utils/password'
 import { checkStrength } from '../../utils/pw-strength'
 import { changeColour } from '../../utils/change-colour'
 import { colourText } from './Helpers'
+import { CopySvg } from '../../utils/svgs'
 
 export default function Form({ onPasswordSet, onSetShow }) {
   const [passwordInfo, setPasswordInfo] = useState({
@@ -69,6 +70,7 @@ export default function Form({ onPasswordSet, onSetShow }) {
       <div className="password-div">
         <p>Your Password:</p>
         <h1>{thePassword}</h1>
+        <CopySvg width="50px" />
         <p style={{ color: colour }}>
           Your password will be cracked {passwordStrength}
         </p>
