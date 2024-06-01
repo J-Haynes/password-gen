@@ -79,7 +79,7 @@ export default function Form({ onPasswordSet, onSetShow }) {
           <CopySvg width="50px" />
         </div>
         <p style={{ color: colour }}>
-          Your password will be cracked {passwordStrength}
+          Your password could be cracked {passwordStrength}
         </p>
       </div>
       <div className="container">
