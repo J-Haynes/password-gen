@@ -38,47 +38,47 @@ export function checkStrength(
   if (seconds < 1) {
     return 'instantly'
   } else if (seconds > 1 && seconds < 2) {
-    return `in One second`
+    return `in one second`
   } else if (seconds >= 2 && seconds < 60) {
     return `in ${Math.trunc(seconds)} seconds`
   } else if (seconds > 60 && seconds < 120) {
-    return `in One minute`
+    return `in one minute`
   } else if (seconds >= 120 && seconds < 3600) {
     return `in ${Math.trunc(seconds / 60)} minutes`
   } else if (seconds >= 3600 && seconds < 7200) {
-    return `in One hour`
+    return `in one hour`
   } else if (seconds >= 7200 && seconds < 86400) {
     return `in ${Math.trunc(seconds / 7200)} hours`
   } else if (seconds >= 86400 && seconds < 172800) {
-    return `in One day`
+    return `in one day`
   } else if (seconds >= 172800 && seconds < 604800) {
     return `in ${Math.trunc(seconds / 86400)} days`
   } else if (seconds >= 604800 && seconds < 1209600) {
-    return `in One week`
+    return `in one week`
   } else if (seconds >= 1209600 && seconds < 2628000) {
     return `in ${Math.trunc(seconds / 604800)} weeks`
   } else if (seconds >= 2628000 && seconds < 5256000) {
-    return `in One month`
+    return `in one month`
   } else if (seconds >= 5256000 && seconds < 31540000) {
     return `in ${Math.trunc(seconds / 2628000)} months`
   } else if (seconds >= 31540000 && seconds < 63080000) {
-    return `in One year`
+    return `in one year`
   } else if (seconds >= 63080000 && seconds < 3154000000) {
     return `in ${Math.trunc(seconds / 31540000)} years`
   } else if (seconds >= 3154000000 && seconds < 6308000000) {
-    return `in One hundred years`
+    return `in one hundred years`
   } else if (seconds >= 6308000000 && seconds < 31540000000) {
     return `in ${Math.trunc(seconds / 3154000000)} centuries`
   } else if (seconds >= 31540000000 && seconds < 63080000000) {
-    return `in One thousand years`
+    return `in one thousand years`
   } else if (seconds >= 63080000000 && seconds < 31540000000000) {
     return `in ${Math.trunc(seconds / 31540000000)} thousand years`
   } else if (seconds >= 31540000000000 && seconds < 63080000000000) {
-    return `in One million years`
+    return `in one million years`
   } else if (seconds >= 63080000000000 && seconds < 31540000000000000) {
     return `in ${Math.trunc(seconds / 31540000000000)} million years`
   } else if (seconds >= 31540000000000000 && seconds < 63080000000000000) {
-    return `in One billion years`
+    return `in one billion years`
   } else if (seconds >= 63080000000000000 && seconds < 31540000000000000000) {
     return `in ${Math.trunc(seconds / 31540000000000000)} billion years`
   } else if (
