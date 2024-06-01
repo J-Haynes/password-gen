@@ -75,9 +75,9 @@ export default function Form({ onPasswordSet, onSetShow }) {
       <div className="password-div">
         <p>Your Password:</p>
         <h1>{thePassword}</h1>
-        {/* <div className="svg-div" onClick={copyHandler}>
+        <div className="svg-div" onClick={copyHandler}>
           <CopySvg width="50px" />
-        </div> */}
+        </div>
         <p style={{ color: colour }}>
           Your password will be cracked {passwordStrength}
         </p>
