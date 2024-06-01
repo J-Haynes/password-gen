@@ -85,7 +85,7 @@ export function checkStrength(
     seconds >= 31540000000000000000 &&
     seconds < 63080000000000000000
   ) {
-    return `in One trillion years`
+    return `in one trillion years`
   } else if (
     seconds >= 63080000000000000000 &&
     seconds < 31540000000000000000000
@@ -95,7 +95,7 @@ export function checkStrength(
     seconds >= 31540000000000000000000 &&
     seconds < 63080000000000000000000
   ) {
-    return `in One quadrillion years`
+    return `in one quadrillion years`
   } else if (seconds > 63080000000000000000000) {
     return `${Math.trunc(seconds / 31540000000000000000000)} quadrillion years`
   } else {
