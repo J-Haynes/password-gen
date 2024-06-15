@@ -15,9 +15,18 @@ export default function Form({ onPasswordSet, onSetShow }) {
     symbol: false,
   })
 
+  const [isCopying, setIsCopying] = useState(false)
+
   const copyHandler = () => {
     console.log('copyHandler')
     navigator.clipboard.writeText(thePassword)
+    const oldPassword = thePassword
+    setThePassword('copied!')
+    setIsCopying(true)
+    setTimeout(() => {
+      setThePassword(oldPassword)
+      setIsCopying(false)
+    }, 1000)
   }
 
   const [passwordStrength, setPasswordStrength] = useState('')
@@ -75,9 +84,18 @@ export default function Form({ onPasswordSet, onSetShow }) {
       <div className="password-div">
         <p>Your Password:</p>
         <h1>{thePassword}</h1>
-        <div className="svg-div" onClick={copyHandler}>
+        {isCopying ? (
+          <div className="svg-div">
+            <CopySvg width="50px" />
+          </div>
+        ) : (
+          <div className="svg-div" onClick={copyHandler}>
+            <CopySvg width="50px" />
+          </div>
+        )}
+        {/* <div className="svg-div" onClick={copyHandler}>
           <CopySvg width="50px" />
-        </div>
+        </div> */}
         <p style={{ color: colour }}>
           Your password could be cracked {passwordStrength}
         </p>
