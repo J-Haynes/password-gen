@@ -3,6 +3,7 @@ import Header from './Header'
 import Form from './Form'
 import Footer from './Footer'
 import Info from './Info'
+import '../styles/index.css'
 
 export default function App() {
   const [passwordInfo, setPasswordInfo] = useState({

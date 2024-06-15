@@ -1,3 +1,8 @@
+:root {
+  --main-bg-colour: #0e141b
+}
+
+
 html {
   font-family: helvetica;
   color: white;
@@ -5,7 +10,7 @@ html {
 
 body {
   margin: 0;
-  background-color: #0e141b
+  background-color: var(--main-bg-colour)
 }
 
 p {
